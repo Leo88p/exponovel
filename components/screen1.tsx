@@ -29,10 +29,10 @@ export default function Screen1() {
           </View>
       </View>
       <View style={styles.bottom}>
-        {escapeAttempt!=1&&!visited&&<Text style={styles.text}>
+        {escapeAttempt!=1&&visited==0&&<Text style={styles.text}>
             Пройдя по узкому коридору, ты обнаруживаешь просторный зал. Воздух внутри тяжёлый, и древняя магия данного места полностью окутывает тебя. Из зала выходит три коридора, и тебе предстоит выбрать, по какому из них идти.
         </Text>}
-        {escapeAttempt!=1&&visited&&<Text style={styles.text}>
+        {escapeAttempt!=1&&visited==1&&<Text style={styles.text}>
           Поднявшись по коридору, ты вернулся в знакомый зал в начале лабиринта.
         </Text>}
         {escapeAttempt==1&&<Text style={styles.text}>

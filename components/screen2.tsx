@@ -18,17 +18,17 @@ export default function Screen2() {
               <Option text='Подняться вверх' 
               next={()=>{dispatch(visit(2)); return dispatch(set(2))}}/>
               <Option text='Спуститься вниз' 
-              next={()=>{dispatch(visit(2)); return dispatch(set(2))}}/>
+              next={()=>{dispatch(visit(2)); return dispatch(set(3))}}/>
               <Option text='Вернуться назад' 
               next={()=>{dispatch(visit(2)); return dispatch(set(1))}}/>
             </ScrollView>
           </View>
       </View>
       <View style={styles.bottom}>
-        {!visited&&<Text style={styles.text}>
+        {visited==0&&<Text style={styles.text}>
           Ты повернул налево. Чем дальше ты проходишь по коридору, тем теплее становится воздух, и ты начинаешь сомневаться, стоит и тебе продолжать путь дальше. Однако, вскоре ты доходишь до лестницы, по которой ты можешь спуститься вниз, где воздух ещё более раскалён, или вверх, где ощущается прохлада.
         </Text>}
-        {visited&&<Text style={styles.text}>
+        {visited==1&&<Text style={styles.text}>
           Ты вернулся в коридор с тёплым воздухом.
         </Text>}
       </View>
