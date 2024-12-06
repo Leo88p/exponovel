@@ -11,15 +11,13 @@ export default StyleSheet.create({
       flex: 4,
     },
     bottom: {
+      backgroundColor: 'rgba(0,0,0,0.5)',
       flex: 1,
       padding: 10,
     },
     text: {
       fontSize: Dimensions.get("window").height/27,
       color: 'white',
-      textShadowColor: 'rgb(0, 0, 0)',
-      textShadowOffset: {width: -1, height: 1},
-      textShadowRadius: 10
     },
     right: {
       backgroundColor: 'rgba(0,0,0,0.5)',

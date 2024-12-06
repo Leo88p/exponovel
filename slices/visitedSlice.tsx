@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  visited: [0, 0, 0, 0],
+  visited: [0, 0, 0, 0, 0, 0, 0, 0, 0],
 }
 
 export const visitedSlice = createSlice({

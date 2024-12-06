@@ -16,7 +16,7 @@ export default function Screen2() {
         <View style={styles.right}>
             <ScrollView style={styles.scroll}>
               <Option text='Подняться вверх' 
-              next={()=>{dispatch(visit(2)); return dispatch(set(2))}}/>
+              next={()=>{dispatch(visit(2)); return dispatch(set(4))}}/>
               <Option text='Спуститься вниз' 
               next={()=>{dispatch(visit(2)); return dispatch(set(3))}}/>
               <Option text='Вернуться назад' 
