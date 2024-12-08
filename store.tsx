@@ -8,7 +8,7 @@ import itemsReducer from '@/slices/itemsSlice'
 export const store = configureStore({
   reducer: {
     scene: sceneReducer,
-    action: actionReducer,
+    actions: actionReducer,
     visited: visitedReducer,
     items: itemsReducer
   },

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import screens from '@/assets/scenes.json'
 
 const initialState = {
-  visited: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  visited: new Array(screens.length).fill(0),
 }
 
 export const visitedSlice = createSlice({

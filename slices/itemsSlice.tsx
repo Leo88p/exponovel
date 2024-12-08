@@ -26,7 +26,7 @@ export const itemsSlice = createSlice({
       use: (state, action) => {
         switch (action.payload) {
           case 'knife':
-              state.knife = 0
+              state.knife = 2
               break
           case 'bucket':
              state.bucket = 2
