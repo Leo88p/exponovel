@@ -7,6 +7,8 @@ const initialState = {
   throwKnife: 0,
   takeBucket: 0,
   takeIce: 0,
+  extinguishFire: 0,
+  cutLeaf: 0
 }
 
 export const actionSlice = createSlice({
@@ -14,48 +16,10 @@ export const actionSlice = createSlice({
     initialState: initialState,
     reducers: {
       todo: (state, action) => {
-        switch (action.payload) {
-          case 'attemptEscape': 
-            state.attemptEscape = 1
-            break
-          case 'takeKnife':
-            state.takeKnife = 1
-            break
-          case 'teleportFromAngel':
-            state.teleportFromAngel = 1
-            break
-          case 'throwKnife':
-            state.throwKnife = 1
-            break
-          case 'takeBucket':
-            state.takeBucket = 1
-            break
-          case 'takeIce':
-            state.takeIce = 1
-            break
-        }
+        state[action.payload as keyof typeof state] = 1
       },
       undo: (state, action) => {
-        switch (action.payload) {
-          case 'attemptEscape': 
-            state.attemptEscape = 0
-            break
-          case 'takeKnife':
-            state.takeKnife = 0
-            break
-          case 'teleportFromAngel':
-            state.teleportFromAngel = 0
-            break
-          case 'throwKnife':
-            state.throwKnife = 0
-            break
-          case 'takeBucket':
-            state.takeBucket = 0
-            break
-          case 'takeIce':
-            state.takeIce = 0
-            break
-        }
+        state[action.payload as keyof typeof state] = 0
       },
     },
   })

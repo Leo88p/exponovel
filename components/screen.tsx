@@ -20,6 +20,13 @@ export default function Screen() {
   const items = useAppSelector((state) => state.items)
   const actions = useAppSelector((state) => state.actions)
   const visited = useAppSelector((state) => state.visited.visited)
+  function check(list: any, prop: string, req: any) {
+    if (list.requirements[prop]) {
+      return Object.keys(list.requirements[prop]).reduce((sum,current)=>sum
+        &&req[current]==list.requirements[prop][current], true)
+    }
+    return true;
+  }
   return (
     <ImageBackground source={backgrounds[screens[scene].background]} style={styles.page} imageStyle={styles.image}>
       <View style={styles.top}>
@@ -27,9 +34,7 @@ export default function Screen() {
           <ScrollView style={styles.scroll}>
             {screens[scene].options.map((option :any, index)=>
               (option.requirements ? 
-                (option.requirements.items?Object.keys(option.requirements.items).reduce((sum, current)=>sum
-                &&(items[current as keyof typeof items]==
-                  option.requirements.items[current as keyof typeof option.requirements.items]), true):true): 
+                check(option, "items", items): 
                 true)
               &&<Option key={index} text={option.text} next={()=>{
                 option.next&&dispatch(visit(scene))
@@ -45,12 +50,7 @@ export default function Screen() {
       <View style={styles.bottom}>
         {screens[scene].descriptions.map((description: any, index)=>
           (description.requirements ? 
-            (description.requirements.actions?Object.keys(description.requirements.actions).reduce((sum, current)=>sum
-            &&(actions[current as keyof typeof actions]==
-              description.requirements.actions[current as keyof typeof description.requirements.actions]), true):true)&&
-            (description.requirements.visited?Object.keys(description.requirements.visited).reduce((sum, current)=>sum
-            &&(visited[parseInt(current)]==
-              description.requirements.visited[current as keyof typeof description.requirements.visited]), true):true): 
+            check(description, "actions", actions) && check(description, "items", items) && check(description, "visited", visited):
             true)
           &&<Text key={index} style={styles.text}>
             {description.text}

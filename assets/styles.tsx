@@ -26,5 +26,15 @@ export default StyleSheet.create({
     },
     scroll: {
       marginBottom: 'auto',
+    },
+    end: {
+      backgroundColor: 'black',
+      flex: 1,
+      justifyContent: 'center',
+    },
+    finalText: {
+      color: 'white',
+      fontSize: Dimensions.get("window").height/10,
+      textAlign: 'center'
     }
   });
